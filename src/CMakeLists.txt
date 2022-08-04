@@ -27,3 +27,27 @@ add_dependencies(${PROJECT_NAME} NanoLog)
 target_link_libraries(${PROJECT_NAME} PRIVATE NanoLog)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE rt)
+
+#------------------------------------------------------------------------------------
+project(gcd-compiletime)
+file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.h ${CMAKE_CURRENT_SOURCE_DIR}/gcd-compiletime.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${Nanolog_INCLUDE_DIR})
+target_link_directories(${PROJECT_NAME} PUBLIC ${Nanolog_LIB_DIR})
+add_dependencies(${PROJECT_NAME} NanoLog)
+target_link_libraries(${PROJECT_NAME} PRIVATE NanoLog)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE rt)
+
+#------------------------------------------------------------------------------------
+project(gcd-runtime)
+file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.h ${CMAKE_CURRENT_SOURCE_DIR}/gcd-runtime.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME} SYSTEM PRIVATE ${Nanolog_INCLUDE_DIR})
+target_link_directories(${PROJECT_NAME} PUBLIC ${Nanolog_LIB_DIR})
+add_dependencies(${PROJECT_NAME} NanoLog)
+target_link_libraries(${PROJECT_NAME} PRIVATE NanoLog)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE rt)
